@@ -20,42 +20,8 @@ namespace TheWorldVs
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app)
         {
-            //przydatne przy użyciu IIS do wdrożenia
-            //app.UseIISPlatformHandler();
-
-            //potrzebujemy wtedy w project.json
-            //"Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final"
-
-
-            // jeśli usuniemy app.Run(), to aplikacja pobierze index.html z wwwroot (IISExpress i web)
-            app.UseDefaultFiles();
+            // nie używamy app.UseDefaultFiles(), cały routing będzie przez MVC, również dla root (index.html)
             app.UseStaticFiles();
-            // ważna jest kolejność wywołania tych metod, to łańcuch wywołań middleware
-
-            // nie tylko dodajemy namespace przez using, ale także zależność w project.json
-            // zarówno dla IISExpress, jak i dla web trzeba w przeglądarce dodać do ścieżki index.html
-            // (chyba, że użyjemy app.UseDefaultFiles()), framework MVC powinien załatwić sprawę
-
-            /*
-            app.Run(async (context) =>
-            {
-                // w context mamy np. ścieżkę request albo query string, i inne
-
-                // wypisze ścieżkę z zapytania; dane wewnątrz stringa - C# 6.0
-                //await context.Response.WriteAsync($"Hello, World: {context.Request.Path}");
-
-                var html = @"<!DOCTYPE html>
-                    <html>
-                        <head>
-                        </head>
-                        <body>
-                            <h2>The World</h2>
-                        </body>
-                    </html>";
-
-                await context.Response.WriteAsync(html);
-            });
-            */
         }
 
         // Entry point for the application.
