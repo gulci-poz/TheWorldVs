@@ -8,8 +8,8 @@ namespace TheWorldVs.ViewModels
         // prop + tab*2
         // walidacja za pomocą anotacji
         // walidacja jakościowa, nie biznesowa
-        // będziemy robili walidację po stronie klienta i serwera
-        // tutaj mamy po stronie serwera
+        // będziemy robili walidację po stronie klienta i serwera - mamy binding
+        // nie korzystamy z jquery validation
 
         [Required]
         [StringLength(255, MinimumLength = 5)]
