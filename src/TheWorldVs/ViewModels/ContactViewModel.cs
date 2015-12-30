@@ -9,6 +9,7 @@ namespace TheWorldVs.ViewModels
         // walidacja za pomocą anotacji
         // walidacja jakościowa, nie biznesowa
         // będziemy robili walidację po stronie klienta i serwera
+        // tutaj mamy po stronie serwera
 
         [Required]
         [StringLength(255, MinimumLength = 5)]
