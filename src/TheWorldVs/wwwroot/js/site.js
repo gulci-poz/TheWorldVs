@@ -42,15 +42,41 @@
     // zwraca wrapped set
     var $sidebarAndWrapper = $("#sidebar,#wrapper");
 
+    // nie potrzebujemy ju¿ etykiet, u¿ywamy ikon z font-awesome
+
     // pocz¹tkowa etykieta
-    $("#sidebarToggle").text("Hide Sidebar");
+    //$("#sidebarToggle").text("Hide Sidebar");
 
     $("#sidebarToggle").on("click", function () {
         $sidebarAndWrapper.toggleClass("hide-sidebar");
+
+        // mo¿na siê bawiæ w wyszukanie elementu i u¿ywanie addClass() i removeClass()
+        // jesteœmy wewn¹trz on() i mamy ³atwy dostêp do przycisku
+        //var $icon = $("#sidebarToggle i.fa");
+
+        // this to w tym wypadku klikniêty przycisk
+
+        // mo¿emy siê dostaæ do podrzêdnego elementu this za pomoc¹ kontekstu
+        //$("i", this)
+        // lub u¿ywaj¹c find()
+        //$(this).find("i")
+
+        // font-awesome
+        // zamiast
+        //glyphicon glyphicon-chevron-left (right)
+        // u¿ywamy
+        //fa fa-angle-left (right)
+        
+        $("i", this).toggleClass("fa-angle-left");
+        $("i", this).toggleClass("fa-angle-right");
+
+        // u¿ywamy ikon z font-awesome
+        /*
         if ($sidebarAndWrapper.hasClass("hide-sidebar")) {
             $(this).text("Show Sidebar");
         } else {
             $(this).text("Hide Sidebar");
         }
+        */
     });
 })();
